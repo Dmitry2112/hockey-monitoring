@@ -1,5 +1,5 @@
 ### Задание 2. Singleton
-Класс `HockeyPlayerService` реализован как singleton (На данный момент реализован максимально простой класс для демонстрации паттерна)
+Класс [`HockeyPlayerService`](src/main/java/org/example/hockeymonitoring/hockeyplayer/services/HockeyPlayerService.java) реализован как singleton (На данный момент реализован максимально простой класс для демонстрации паттерна)
 
 Это можно определить по следующим признакам:
 1. Метод `getInstance` возвращает экземпляр класса `HockeyPlayerService`, который создан как `static final` поле.
