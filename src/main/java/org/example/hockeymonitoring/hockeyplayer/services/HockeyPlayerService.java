@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Паттерг Singleton
+ * Паттерн Singleton
  */
 @Service
 public class HockeyPlayerService {

@@ -3,7 +3,7 @@ package examples.patterns.creation.prototype;
 import lombok.Getter;
 
 /**
- * Паттерг Prototype
+ * Паттерн Prototype
  */
 public class HockeyPlayer implements User {
     @Getter
