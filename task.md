@@ -40,3 +40,15 @@ InMemory кэш, который опять же должен быть едины
 
 Этот класс реализован как builder, для того, чтобы можно было быстро и удобно создавать объект команды, сохраняя читаемость
 кода даже при большом количестве полей.
+
+### Задание 6. Factory method
+В классе [`Notificator`](src/main/java/org/example/hockeymonitoring/notification/Notificator.java) реализован паттерн factory method
+
+Это можно определить по следующим признакам:
+1. Интерфейс [`Notification`](src/main/java/org/example/hockeymonitoring/notification/Notification.java), который представляет продукт.
+2. Абстрактный класс [`Notificator`](src/main/java/org/example/hockeymonitoring/notification/Notificator.java), который представляет создателя и содержит метод `sendNotification` (операция с продуктом), вызывающий внутри себя метод по созданию продукта `createNotification` (фабричный метод).
+3. Классы [`HockeyPlayerNotification`](src/main/java/org/example/hockeymonitoring/notification/HockeyPlayerNotification.java) и [`TrainerNotification`](src/main/java/org/example/hockeymonitoring/notification/TrainerNotification.java), которые представляют конкретные продукты.
+4. Классы [`HockeyPlayerNotificator`](src/main/java/org/example/hockeymonitoring/notification/HockeyPlayerNotificator.java) и [`TrainerNotificator`](src/main/java/org/example/hockeymonitoring/notification/TrainerNotificator.java), которые представляют конкретных создателей.
+
+В этом классе реализован factory method, для того, чтобы можно было удобно применять одну и ту же операцию
+(например отправка уведомления) к объектам разных классов, реализующих один интерфейс.
