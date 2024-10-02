@@ -29,3 +29,14 @@ InMemory кэш, который опять же должен быть едины
 В Этом классе реализован static factory method, для того, чтобы можно было создавать матч с различными параметрами
 (например правилами) без ограничений, накладываемых конструктором.
 
+### Задание 5. Builder
+Класс [`HockeyTeamBuilder`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeamBuilder.java) реализован как builder
+
+Это можно определить по следующим признакам:
+1. Закрытый конструктор, который вызывается в классе [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java) в теле метода `builder`.
+2. Дублирование всех полей класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java).
+3. Наличие методов по типу `public HockeyTeamBuilder name(String name) {...}` для каждого поля, которые накапливают данные в полях билдера и возвращают this.
+4. Метод `build`, в теле которого вызывается конструктор класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java), в который в качестве параметров передаются поля билдера, и возвращается только что созданный экземпляр класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java).
+
+Этот класс реализован как builder, для того, чтобы можно было быстро и удобно создавать объект команды, сохраняя читаемость
+кода даже при большом количестве полей.
