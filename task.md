@@ -63,3 +63,14 @@ InMemory кэш, который опять же должен быть едины
 
 В этом примере паттерн абстрактная фабрика помогает создавать необходимые связанные объекты (правила и приз)
 из одного семейства (городская или региональная игра).
+
+### Задание 8. Adapter
+В классе [`HockeyPlayerAdapter`](src/main/java/examples/patterns/structure/adapter/HockeyPlayerAdapter.java) реализован паттерн adapter
+
+Это можно определить по следующим признакам:
+1. Класс (адаптер) имплементирует интерфейс [`TeamCaptain`](src/main/java/examples/patterns/structure/adapter/TeamCaptain.java), позволяющий отдавать команды.
+2. Класс (адаптер) включает в себя класс [`HockeyPlayer`](src/main/java/examples/patterns/structure/adapter/HockeyPlayer.java), который, в свою очередь, не имплементирует интерфейс [`TeamCaptain`](src/main/java/examples/patterns/structure/adapter/TeamCaptain.java), но имеет метод `saySomething`, позволяющий что-то сказать своей команде.
+3. Класс (адаптер) переопределяет метод интерфейса [`TeamCaptain`](src/main/java/examples/patterns/structure/adapter/TeamCaptain.java), вызывая в нем методы класса [`HockeyPlayer`](src/main/java/examples/patterns/structure/adapter/HockeyPlayer.java).
+   
+В этом класс реализован паттерн adapter, для того, чтобы можно было вызывать методы игрока в методах, где требуется капитан.
+Это позволяет удобно наделять игрока из команды возможностями капитана.
