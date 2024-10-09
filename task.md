@@ -52,3 +52,14 @@ InMemory кэш, который опять же должен быть едины
 
 В этом классе реализован factory method, для того, чтобы можно было удобно применять одну и ту же операцию
 (например отправка уведомления) к объектам разных классов, реализующих один интерфейс.
+
+### Задание 7. Abstract factory
+Интерфейс [`HockeyGameFactory`](src/main/java/examples/patterns/creation/abstractfactory/HockeyGameFactory.java) представляет собой abstract factory
+
+Это можно определить по следующим признакам:
+1. Методы `newRules` и `newPrize`, которые отвечают за создание абстрактных объектов.
+2. Классы [`CityHockeyGameFactory`](src/main/java/examples/patterns/creation/abstractfactory/CityHockeyGameFactory.java) и [`RegionHockeyGameFactory`](src/main/java/examples/patterns/creation/abstractfactory/RegionHockeyGameFactory.java), которые являются реализациями абстрактной фабрики и уже создают конкретные объекты.
+3. Наличие интерфейсов абстрактных продуктов по типу [`Rules`](src/main/java/examples/patterns/creation/abstractfactory/Rules.java) и их конкретных реализаций в виде [`CityRules`](src/main/java/examples/patterns/creation/abstractfactory/CityRules.java).
+
+В этом примере паттерн абстрактная фабрика помогает создавать необходимые связанные объекты (правила и приз)
+из одного семейства (городская или региональная игра).
