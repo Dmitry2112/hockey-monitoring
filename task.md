@@ -74,3 +74,15 @@ InMemory кэш, который опять же должен быть едины
    
 В этом класс реализован паттерн adapter, для того, чтобы можно было вызывать методы игрока в методах, где требуется капитан.
 Это позволяет удобно наделять игрока из команды возможностями капитана.
+
+### Задание 9. Bridge
+В классе [`Judge`](src/main/java/examples/patterns/structure/bridge/Judge.java) реализован паттерн bridge
+
+Это можно определить по следующим признакам:
+1. Абстрактный класс (абстракция) [`Judge`](src/main/java/examples/patterns/structure/bridge/Judge.java), включает в себя [`JudgeLevel`](src/main/java/examples/patterns/structure/bridge/JudgeLevel.java) (реализация).
+2. Класс [`Judge`](src/main/java/examples/patterns/structure/bridge/Judge.java) и интерфейс [`JudgeLevel`](src/main/java/examples/patterns/structure/bridge/JudgeLevel.java) имеют независимые иерархии наследования.
+3. Класс [`Judge`](src/main/java/examples/patterns/structure/bridge/Judge.java) имеет несколько реализаций [`ChiefJudge`](src/main/java/examples/patterns/structure/bridge/ChiefJudge.java) и [`VideoJudge`](src/main/java/examples/patterns/structure/bridge/VideoJudge.java), а интерфейс [`JudgeLevel`](src/main/java/examples/patterns/structure/bridge/JudgeLevel.java) имеет реализации [`CityJudge`](src/main/java/examples/patterns/structure/bridge/CityJudge.java) и [`RegionJudge`](src/main/java/examples/patterns/structure/bridge/RegionJudge.java). Эти реализации можно комбинировать в зависимости от уровня матча, не создавая при этом множество классов по типу `ChiefCityJudge`.
+
+В этом классе реализован паттерн bridge, для того, чтобы не создавать множество классов, например при увеличении количества
+уровней матчей или видов судей. Также паттерн bridge позволяет независимо работать над двумя иерархиями абстракции и
+реализации.
