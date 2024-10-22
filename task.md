@@ -98,3 +98,16 @@ InMemory кэш, который опять же должен быть едины
 В этом классе реализован паттерн composite, для того, чтобы представить древовидную структуру хоккейной команды. Паттерн
 composite также позволяет клиентскому коду не задумываться о том, работает он с листом или с узлом, так как оба класса
 реализуют один интерфейс [`HockeyStructureElement`](src/main/java/examples/patterns/structure/composite/HockeyStructureElement.java)
+
+### Задание 11. Decorator
+В классе [`Mood`](src/main/java/examples/patterns/structure/decorator/Mood.java) реализован паттерн decorator
+
+Это можно определить по следующим признакам:
+1. Интерфейс [`Judge`](src/main/java/examples/patterns/structure/decorator/Judge.java), который представляет собой компонент.
+2. Абстрактный класс [`Mood`](src/main/java/examples/patterns/structure/decorator/Mood.java), который представляет собой декоратор, который содержит поле типа [`Judge`](src/main/java/examples/patterns/structure/decorator/Judge.java) и реализует метод интерфейса, вызывая в нем метод декарируемого объекта.
+3. Класс [`MainJudge`](src/main/java/examples/patterns/structure/decorator/MainJudge.java), который представляет собой конкретный компонент.
+4. Класс [`GoodMood`](src/main/java/examples/patterns/structure/decorator/GoodMood.java), который представляет собой конкретный декоратор (хорошее настроение), наследуется от [`Mood`](src/main/java/examples/patterns/structure/decorator/Mood.java). Декоратор вызывает метод базового класса, изменяя его поведение.
+5. Класс [`BadMood`](src/main/java/examples/patterns/structure/decorator/BadMood.java), который представляет собой конкретный декоратор (плохое настроение), наследуется от [`Mood`](src/main/java/examples/patterns/structure/decorator/Mood.java) Декоратор вызывает метод базового класса, изменяя его поведение.
+
+В этом классе реализован паттерн decorator, для того, чтобы изменять поведение судьи в зависимости от его настроения,
+не изменяя сам класс судьи.
