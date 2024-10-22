@@ -86,3 +86,15 @@ InMemory кэш, который опять же должен быть едины
 В этом классе реализован паттерн bridge, для того, чтобы не создавать множество классов, например при увеличении количества
 уровней матчей или видов судей. Также паттерн bridge позволяет независимо работать над двумя иерархиями абстракции и
 реализации.
+
+### Задание 10. Composite
+В классе [`HockeyTeam`](src/main/java/examples/patterns/structure/composite/HockeyTeam.java) реализован паттерн composite
+
+Это можно определить по следующим признакам:
+1. Интерфейс [`HockeyStructureElement`](src/main/java/examples/patterns/structure/composite/HockeyStructureElement.java), который описывает базовую операцию `registerOnGame` и операции с компонентом `addHockeyStructureElement` и `hockeyStructureElements`.
+2. Классы [`HockeyTeam`](src/main/java/examples/patterns/structure/composite/HockeyTeam.java) и [`HockeyPlayer`](src/main/java/examples/patterns/structure/composite/HockeyPlayer.java), которые представляют собой узел и лист соответственно. Они оба реализуют интерфейс [`HockeyStructureElement`](src/main/java/examples/patterns/structure/composite/HockeyStructureElement.java), но [`HockeyPlayer`](src/main/java/examples/patterns/structure/composite/HockeyPlayer.java) реализует базовую операцию, а [`HockeyTeam`](src/main/java/examples/patterns/structure/composite/HockeyTeam.java) реализует операции с компонентом
+3. Класс [`HockeyTeam`](src/main/java/examples/patterns/structure/composite/HockeyTeam.java) содержит поле `private final List<HockeyStructureElement> children` для хранения дочерних элементов.
+
+В этом классе реализован паттерн composite, для того, чтобы представить древовидную структуру хоккейной команды. Паттерн
+composite также позволяет клиентскому коду не задумываться о том, работает он с листом или с узлом, так как оба класса
+реализуют один интерфейс [`HockeyStructureElement`](src/main/java/examples/patterns/structure/composite/HockeyStructureElement.java)
