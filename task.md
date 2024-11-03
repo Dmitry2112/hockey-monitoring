@@ -1,5 +1,5 @@
 ### Задание 2. Singleton
-Класс [`HockeyPlayerService`](src/main/java/org/example/hockeymonitoring/hockeyplayer/services/HockeyPlayerService.java) реализован как singleton (На данный момент реализован максимально простой класс для демонстрации паттерна)
+Класс [`HockeyPlayerService`](src/main/java/org/example/hockeymonitoring/modules/athlete/services/HockeyPlayerService.java) реализован как singleton (На данный момент реализован максимально простой класс для демонстрации паттерна)
 
 Это можно определить по следующим признакам:
 1. Метод `getInstance` возвращает экземпляр класса `HockeyPlayerService`, который создан как `static final` поле.
@@ -19,7 +19,7 @@ InMemory кэш, который опять же должен быть едины
 несколько копий игроков. Это можно использовать, например, для тестирования, чтобы быстро сгенерировать команду.
 
 ### Задание 4. Static factory method
-В классе [`HockeyMatch`](src/main/java/org/example/hockeymonitoring/hockeyplayer/models/HockeyMatch.java) реализован static factory method
+В классе [`HockeyMatch`](src/main/java/org/example/hockeymonitoring/modules/athlete/models/HockeyMatch.java) реализован static factory method
 
 Это можно определить по следующим признакам:
 1. Приватный конструктор.
@@ -30,25 +30,25 @@ InMemory кэш, который опять же должен быть едины
 (например правилами) без ограничений, накладываемых конструктором.
 
 ### Задание 5. Builder
-Класс [`HockeyTeamBuilder`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeamBuilder.java) реализован как builder
+Класс [`HockeyTeamBuilder`](src/main/java/org/example/hockeymonitoring/modules/hockeyteam/models/HockeyTeamBuilder.java) реализован как builder
 
 Это можно определить по следующим признакам:
-1. Закрытый конструктор, который вызывается в классе [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java) в теле метода `builder`.
-2. Дублирование всех полей класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java).
+1. Закрытый конструктор, который вызывается в классе [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/modules/hockeyteam/models/HockeyTeam.java) в теле метода `builder`.
+2. Дублирование всех полей класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/modules/hockeyteam/models/HockeyTeam.java).
 3. Наличие методов по типу `public HockeyTeamBuilder name(String name) {...}` для каждого поля, которые накапливают данные в полях билдера и возвращают this.
-4. Метод `build`, в теле которого вызывается конструктор класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java), в который в качестве параметров передаются поля билдера, и возвращается только что созданный экземпляр класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/hockeyteam/models/HockeyTeam.java).
+4. Метод `build`, в теле которого вызывается конструктор класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/modules/hockeyteam/models/HockeyTeam.java), в который в качестве параметров передаются поля билдера, и возвращается только что созданный экземпляр класса [`HockeyTeam`](src/main/java/org/example/hockeymonitoring/modules/hockeyteam/models/HockeyTeam.java).
 
 Этот класс реализован как builder, для того, чтобы можно было быстро и удобно создавать объект команды, сохраняя читаемость
 кода даже при большом количестве полей.
 
 ### Задание 6. Factory method
-В классе [`Notificator`](src/main/java/org/example/hockeymonitoring/notification/Notificator.java) реализован паттерн factory method
+В классе [`Notificator`](src/main/java/org/example/hockeymonitoring/modules/notification/Notificator.java) реализован паттерн factory method
 
 Это можно определить по следующим признакам:
-1. Интерфейс [`Notification`](src/main/java/org/example/hockeymonitoring/notification/Notification.java), который представляет продукт.
-2. Абстрактный класс [`Notificator`](src/main/java/org/example/hockeymonitoring/notification/Notificator.java), который представляет создателя и содержит метод `sendNotification` (операция с продуктом), вызывающий внутри себя метод по созданию продукта `createNotification` (фабричный метод).
-3. Классы [`HockeyPlayerNotification`](src/main/java/org/example/hockeymonitoring/notification/HockeyPlayerNotification.java) и [`TrainerNotification`](src/main/java/org/example/hockeymonitoring/notification/TrainerNotification.java), которые представляют конкретные продукты.
-4. Классы [`HockeyPlayerNotificator`](src/main/java/org/example/hockeymonitoring/notification/HockeyPlayerNotificator.java) и [`TrainerNotificator`](src/main/java/org/example/hockeymonitoring/notification/TrainerNotificator.java), которые представляют конкретных создателей.
+1. Интерфейс [`Notification`](src/main/java/org/example/hockeymonitoring/modules/notification/Notification.java), который представляет продукт.
+2. Абстрактный класс [`Notificator`](src/main/java/org/example/hockeymonitoring/modules/notification/Notificator.java), который представляет создателя и содержит метод `sendNotification` (операция с продуктом), вызывающий внутри себя метод по созданию продукта `createNotification` (фабричный метод).
+3. Классы [`HockeyPlayerNotification`](src/main/java/org/example/hockeymonitoring/modules/notification/HockeyPlayerNotification.java) и [`TrainerNotification`](src/main/java/org/example/hockeymonitoring/modules/notification/TrainerNotification.java), которые представляют конкретные продукты.
+4. Классы [`HockeyPlayerNotificator`](src/main/java/org/example/hockeymonitoring/modules/notification/HockeyPlayerNotificator.java) и [`TrainerNotificator`](src/main/java/org/example/hockeymonitoring/modules/notification/TrainerNotificator.java), которые представляют конкретных создателей.
 
 В этом классе реализован factory method, для того, чтобы можно было удобно применять одну и ту же операцию
 (например отправка уведомления) к объектам разных классов, реализующих один интерфейс.

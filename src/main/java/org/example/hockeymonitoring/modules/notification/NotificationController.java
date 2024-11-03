@@ -1,4 +1,4 @@
-package org.example.hockeymonitoring.notification;
+package org.example.hockeymonitoring.modules.notification;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package org.example.hockeymonitoring.hockeyplayer.services;
+package org.example.hockeymonitoring.modules.athlete.services;
 
-import org.example.hockeymonitoring.hockeyplayer.models.HockeyPlayer;
+import org.example.hockeymonitoring.modules.athlete.models.HockeyPlayer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

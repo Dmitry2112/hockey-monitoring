@@ -1,4 +1,4 @@
-package org.example.hockeymonitoring.notification;
+package org.example.hockeymonitoring.modules.notification;
 
 import org.springframework.stereotype.Service;
 

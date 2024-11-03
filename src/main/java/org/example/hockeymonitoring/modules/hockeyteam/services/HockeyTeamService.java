@@ -1,9 +1,9 @@
-package org.example.hockeymonitoring.hockeyteam.services;
+package org.example.hockeymonitoring.modules.hockeyteam.services;
 
 import lombok.AllArgsConstructor;
-import org.example.hockeymonitoring.hockeyplayer.models.HockeyPlayer;
-import org.example.hockeymonitoring.hockeyplayer.services.HockeyPlayerService;
-import org.example.hockeymonitoring.hockeyteam.models.HockeyTeam;
+import org.example.hockeymonitoring.modules.athlete.models.HockeyPlayer;
+import org.example.hockeymonitoring.modules.athlete.services.HockeyPlayerService;
+import org.example.hockeymonitoring.modules.hockeyteam.models.HockeyTeam;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

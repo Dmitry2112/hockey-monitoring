@@ -1,7 +1,7 @@
-package org.example.hockeymonitoring.hockeyteam.controllers;
+package org.example.hockeymonitoring.modules.hockeyteam.controllers;
 
-import org.example.hockeymonitoring.hockeyteam.models.HockeyTeam;
-import org.example.hockeymonitoring.hockeyteam.services.HockeyTeamService;
+import org.example.hockeymonitoring.modules.hockeyteam.models.HockeyTeam;
+import org.example.hockeymonitoring.modules.hockeyteam.services.HockeyTeamService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

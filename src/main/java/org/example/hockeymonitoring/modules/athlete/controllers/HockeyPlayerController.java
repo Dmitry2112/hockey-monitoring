@@ -1,7 +1,7 @@
-package org.example.hockeymonitoring.hockeyplayer.controllers;
+package org.example.hockeymonitoring.modules.athlete.controllers;
 
-import org.example.hockeymonitoring.hockeyplayer.models.HockeyPlayer;
-import org.example.hockeymonitoring.hockeyplayer.services.HockeyPlayerService;
+import org.example.hockeymonitoring.modules.athlete.models.HockeyPlayer;
+import org.example.hockeymonitoring.modules.athlete.services.HockeyPlayerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

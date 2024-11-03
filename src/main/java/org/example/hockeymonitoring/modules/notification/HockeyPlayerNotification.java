@@ -1,4 +1,4 @@
-package org.example.hockeymonitoring.notification;
+package org.example.hockeymonitoring.modules.notification;
 
 public class HockeyPlayerNotification implements Notification {
     private final String message;

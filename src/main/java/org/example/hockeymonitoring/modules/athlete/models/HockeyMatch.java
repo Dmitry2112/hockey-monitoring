@@ -1,4 +1,4 @@
-package org.example.hockeymonitoring.hockeyplayer.models;
+package org.example.hockeymonitoring.modules.athlete.models;
 
 import lombok.Getter;
 

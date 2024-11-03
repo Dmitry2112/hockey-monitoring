@@ -1,7 +1,7 @@
-package org.example.hockeymonitoring.hockeyteam.models;
+package org.example.hockeymonitoring.modules.hockeyteam.models;
 
 import lombok.Data;
-import org.example.hockeymonitoring.hockeyplayer.models.HockeyPlayer;
+import org.example.hockeymonitoring.modules.athlete.models.HockeyPlayer;
 
 import java.util.List;
 
