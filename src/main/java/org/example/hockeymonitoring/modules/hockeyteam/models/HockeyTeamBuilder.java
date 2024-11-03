@@ -1,6 +1,6 @@
 package org.example.hockeymonitoring.modules.hockeyteam.models;
 
-import org.example.hockeymonitoring.modules.athlete.models.HockeyPlayer;
+import org.example.hockeymonitoring.modules.athlete.models.Athlete;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class HockeyTeamBuilder {
     private String name;
     private String description;
     private int trainerId;
-    private List<HockeyPlayer> players;
+    private List<Athlete> players;
     HockeyTeamBuilder() {}
     public HockeyTeamBuilder name(String name) {
         this.name = name;
@@ -26,7 +26,7 @@ public class HockeyTeamBuilder {
         this.trainerId = trainerId;
         return this;
     }
-    public HockeyTeamBuilder players(List<HockeyPlayer> players) {
+    public HockeyTeamBuilder players(List<Athlete> players) {
         this.players = new ArrayList<>(players);
         return this;
     }

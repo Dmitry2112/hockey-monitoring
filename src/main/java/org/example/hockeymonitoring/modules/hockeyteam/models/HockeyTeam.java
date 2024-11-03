@@ -1,7 +1,7 @@
 package org.example.hockeymonitoring.modules.hockeyteam.models;
 
 import lombok.Data;
-import org.example.hockeymonitoring.modules.athlete.models.HockeyPlayer;
+import org.example.hockeymonitoring.modules.athlete.models.Athlete;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ public class HockeyTeam {
     private String name;
     private String description;
     private long trainerId;
-    private List<HockeyPlayer> players;
-    HockeyTeam(String name, String description, int trainerId, List<HockeyPlayer> players) {
+    private List<Athlete> players;
+    HockeyTeam(String name, String description, int trainerId, List<Athlete> players) {
         this.name = name;
         this.description = description;
         this.trainerId = trainerId;
