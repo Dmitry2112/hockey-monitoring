@@ -133,3 +133,15 @@ composite также позволяет клиентскому коду не з�
    
 В этом классе реализован паттерн flyweight, для того, чтобы снизить потребление памяти при создании большого количества
 одинаковых объектов, разделяя общие данные, например, тип фигуры.
+
+### Задание 14. Proxy
+В классе [`TournamentResultsTableProxy`](src/main/java/examples/patterns/structure/proxy/TournamentResultsTableProxy.java) реализован паттерн proxy
+
+Это можно определить по следующим признакам:
+1. Главный класс [`TournamentResultsTable`](src/main/java/examples/patterns/structure/proxy/TournamentResultsTable.java) выполняет долгую и сложную работу в методе `getResults` - читает данные из потенциально большого файла. В клиентском коде этот метод вызывается каждый раз при печати результатов.
+2. Класс proxy [`TournamentResultsTableProxy`](src/main/java/examples/patterns/structure/proxy/TournamentResultsTableProxy.java), реализует тот же интерфейс [`TournamentResults`](src/main/java/examples/patterns/structure/proxy/TournamentResults.java), что и главный класс.
+3. Класс proxy [`TournamentResultsTableProxy`](src/main/java/examples/patterns/structure/proxy/TournamentResultsTableProxy.java) включает в себя главный класс [`TournamentResultsTable`](src/main/java/examples/patterns/structure/proxy/TournamentResultsTable.java).
+4. Класс proxy [`TournamentResultsTableProxy`](src/main/java/examples/patterns/structure/proxy/TournamentResultsTableProxy.java) при первом вызове метода `getResults` вызывает метод главного класса и сохраняет результат в `resultsCache`, чтобы при последующих вызовах возвращать результат из него.
+
+В этом классе реализован паттерн proxy, для того, чтобы оптимизировать процесс получения результатов для печати, не
+меняя при этом клиентский код.
