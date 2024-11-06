@@ -145,3 +145,16 @@ composite также позволяет клиентскому коду не з�
 
 В этом классе реализован паттерн proxy, для того, чтобы оптимизировать процесс получения результатов для печати, не
 меняя при этом клиентский код.
+
+### Задание 15. Chain of responsibility
+В классе [`HandlerBase`](src/main/java/examples/patterns/behavior/chainofresponsibility/HandlerBase.java) реализован паттерн chain of responsibility
+
+Это можно определить по следующим признакам:
+1. Базовый класс [`HandlerBase`](src/main/java/examples/patterns/behavior/chainofresponsibility/HandlerBase.java), который реализует интерфейс [`Handler`](src/main/java/examples/patterns/behavior/chainofresponsibility/Handler.java), в котором описаны методы по обработке и передачи контекста следующему обработчику.
+2. Класс [`ChangeRatingHandler`](src/main/java/examples/patterns/behavior/chainofresponsibility/ChangeRatingHandler.java) (конкретный обработчик), который наследуется от [`HandlerBase`](src/main/java/examples/patterns/behavior/chainofresponsibility/HandlerBase.java).
+3. Класс [`ChangeTeamNameHandler`](src/main/java/examples/patterns/behavior/chainofresponsibility/ChangeTeamNameHandler.java) (конкретный обработчик), который наследуется от [`HandlerBase`](src/main/java/examples/patterns/behavior/chainofresponsibility/HandlerBase.java).
+4. Класс [`ChangeCategoryHandler`](src/main/java/examples/patterns/behavior/chainofresponsibility/ChangeCategoryHandler.java) (конкретный обработчик), который наследуется от [`HandlerBase`](src/main/java/examples/patterns/behavior/chainofresponsibility/HandlerBase.java).
+5. Класс [`Athlete`](src/main/java/examples/patterns/behavior/chainofresponsibility/Athlete.java), который представляет собой контекст.
+   
+В этом классе реализован паттерн chain of responsibility, для того, чтобы можно было по цепочке независимо изменять объект.
+Данный паттерн позволяет в дальнейшем без проблем добавлять новые обработчики.
