@@ -23,7 +23,7 @@ public class AthleteController {
 
     @PostMapping("save_athlete")
     public Athlete saveAthlete(@RequestBody CreateAthleteDto createAthleteDto) {
-        return athleteService.saveAthlete(createAthleteDto.getAthlete(), createAthleteDto.getUserId());
+        return athleteService.saveAthlete(createAthleteDto);
     }
 
     @GetMapping("/{id}")

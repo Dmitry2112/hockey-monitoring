@@ -1,8 +1,11 @@
 package org.example.hockeymonitoring.modules.athlete.services;
 
 import lombok.AllArgsConstructor;
+import org.example.hockeymonitoring.modules.athlete.dto.CreateAthleteDto;
 import org.example.hockeymonitoring.modules.athlete.models.Athlete;
 import org.example.hockeymonitoring.modules.athlete.repositories.AthleteRepository;
+import org.example.hockeymonitoring.modules.trainingmethod.models.TrainingMethod;
+import org.example.hockeymonitoring.modules.trainingmethod.services.TrainingMethodService;
 import org.example.hockeymonitoring.modules.user.models.User;
 import org.example.hockeymonitoring.modules.user.services.UserService;
 import org.springframework.stereotype.Service;
@@ -14,15 +17,19 @@ import java.util.List;
 public class AthleteService {
     private final AthleteRepository athleteRepository;
     private final UserService userService;
+    private final TrainingMethodService trainingMethodService;
 
     public List<Athlete> getAllAthletes() {
         return athleteRepository.findAll();
     }
 
-    public Athlete saveAthlete(Athlete athlete, Long userId) {
-        User user = userService.findById(userId);
+    public Athlete saveAthlete(CreateAthleteDto createAthleteDto) {
+        User user = userService.findById(createAthleteDto.getUserId());
+        TrainingMethod trainingMethod = trainingMethodService.findById(createAthleteDto.getTrainingMethodId());
 
+        Athlete athlete = createAthleteDto.getAthlete();
         athlete.setUser(user);
+        athlete.setTrainingMethod(trainingMethod);
 
         return athleteRepository.save(athlete);
     }
