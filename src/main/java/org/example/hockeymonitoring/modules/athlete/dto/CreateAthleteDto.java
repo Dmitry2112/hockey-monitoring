@@ -7,5 +7,6 @@ import org.example.hockeymonitoring.modules.athlete.models.Athlete;
 public class CreateAthleteDto {
     private Long userId;
     private Long trainingMethodId;
+    private Long teamRoleId;
     private Athlete athlete;
 }
