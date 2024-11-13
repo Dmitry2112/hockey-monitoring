@@ -158,3 +158,16 @@ composite также позволяет клиентскому коду не з�
    
 В этом классе реализован паттерн chain of responsibility, для того, чтобы можно было по цепочке независимо изменять объект.
 Данный паттерн позволяет в дальнейшем без проблем добавлять новые обработчики.
+
+### Задание 16. Command
+В классе [`NotificationCommand`](src/main/java/examples/patterns/behavior/command/NotificationCommand.java) реализован паттерн command
+
+Это можно определить по следующим признакам:
+1. Абстрактный класс [`NotificationCommand`](src/main/java/examples/patterns/behavior/command/NotificationCommand.java), который представляет собой команду, включает в себя сервис, методы, которого будут выполняться конкретными командами и один абстрактный метод `execute`.
+2. Класс [`NotificationService`](src/main/java/examples/patterns/behavior/command/NotificationService.java) (receiver), представляет собой сервис, который выполняет полезную работу.
+3. Класс [`EmailNotificationCommand`](src/main/java/examples/patterns/behavior/command/EmailNotificationCommand.java) (конкретная команда), который наследуется от [`NotificationCommand`](src/main/java/examples/patterns/behavior/command/NotificationCommand.java) и вызывает метод сервиса `sendEmailNotification`.
+4. Класс [`SmsNotificationCommand`](src/main/java/examples/patterns/behavior/command/SmsNotificationCommand.java) (конкретная команда), который наследуется от [`NotificationCommand`](src/main/java/examples/patterns/behavior/command/NotificationCommand.java) и вызывает метод сервиса `sendSmsNotification`.
+5. Класс [`NotificationCommandSource`](src/main/java/examples/patterns/behavior/command/NotificationCommandSource.java) (invoker), с помощью которого вызываются команды.
+
+В этом классе реализован паттерн command, для того, чтобы сделать классы receiver и invoker независимыми. Также этот
+паттерн позволяет удобно сохранять историю команд в виде списка объектов.
