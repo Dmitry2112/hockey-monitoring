@@ -195,3 +195,16 @@ interpreter позволяет легко добавлять новые прав
 
 В этом примере реализован паттерн iterator, для того, чтобы удобно перебирать награды игрока, не раскрывая внутреннего
 устройства этого объекта, который потенциально может быть довольно сложным.
+
+### Задание 19. Mediator
+В классе [`SuperTeam`](src/main/java/examples/patterns/behavior/mediator/SuperTeam.java) реализован паттерн mediator
+
+Это можно определить по следующим признакам:
+1. Интерфейс [`Team`](src/main/java/examples/patterns/behavior/mediator/Team.java), который представляет интерфейс медиатора с одним методом `sendMessage`.
+2. Класс [`SuperTeam`](src/main/java/examples/patterns/behavior/mediator/SuperTeam.java) (конкретный медиатор) представляет команду, которая включает в себя капитана команды и игроков, и отвечает за их взаимодействие.
+3. Интерфейс [`TeamMember`](src/main/java/examples/patterns/behavior/mediator/TeamMember.java) (абстрактный коллега), который представляет собой интерфейс члена команды.
+4. Классы [`TeamCaptain`](src/main/java/examples/patterns/behavior/mediator/TeamCaptain.java) и [`HockeyPlayer`](src/main/java/examples/patterns/behavior/mediator/HockeyPlayer.java) (конкретные коллеги) представляют собой капитана команды и игрока, между которыми происходит взаимодействие.
+
+В этом примере реализован паттерн mediator, для того, чтобы обеспечить взаимодействие множества объектов
+(капитана, игроков, возможно тренера и тд.) без необходимости ссылаться друг на друга. Это позволяет устранить
+сильную связность между ними.
