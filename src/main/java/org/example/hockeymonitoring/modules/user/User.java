@@ -1,4 +1,4 @@
-package org.example.hockeymonitoring.modules.user.models;
+package org.example.hockeymonitoring.modules.user;
 
 import jakarta.persistence.*;
 import lombok.Data;

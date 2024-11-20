@@ -1,11 +1,9 @@
-package org.example.hockeymonitoring.modules.trainingmethod.services;
+package org.example.hockeymonitoring.modules.trainingmethod;
 
 import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.trainingmethod.dto.CreateTrainingMethodDto;
-import org.example.hockeymonitoring.modules.trainingmethod.models.TrainingMethod;
-import org.example.hockeymonitoring.modules.trainingmethod.repositories.TrainingMethodRepository;
-import org.example.hockeymonitoring.modules.user.models.User;
-import org.example.hockeymonitoring.modules.user.services.UserService;
+import org.example.hockeymonitoring.modules.user.User;
+import org.example.hockeymonitoring.modules.user.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

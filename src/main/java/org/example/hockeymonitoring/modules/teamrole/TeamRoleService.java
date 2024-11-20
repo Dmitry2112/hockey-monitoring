@@ -1,8 +1,6 @@
-package org.example.hockeymonitoring.modules.teamrole.services;
+package org.example.hockeymonitoring.modules.teamrole;
 
 import lombok.AllArgsConstructor;
-import org.example.hockeymonitoring.modules.teamrole.models.TeamRole;
-import org.example.hockeymonitoring.modules.teamrole.repositories.TeamRoleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

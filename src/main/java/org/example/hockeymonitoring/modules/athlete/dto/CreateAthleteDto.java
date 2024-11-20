@@ -1,7 +1,7 @@
 package org.example.hockeymonitoring.modules.athlete.dto;
 
 import lombok.Getter;
-import org.example.hockeymonitoring.modules.athlete.models.Athlete;
+import org.example.hockeymonitoring.modules.athlete.Athlete;
 
 @Getter
 public class CreateAthleteDto {

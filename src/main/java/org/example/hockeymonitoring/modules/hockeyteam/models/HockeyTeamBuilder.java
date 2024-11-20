@@ -1,6 +1,6 @@
 package org.example.hockeymonitoring.modules.hockeyteam.models;
 
-import org.example.hockeymonitoring.modules.athlete.models.Athlete;
+import org.example.hockeymonitoring.modules.athlete.Athlete;
 
 import java.util.ArrayList;
 import java.util.List;

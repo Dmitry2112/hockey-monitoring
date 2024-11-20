@@ -1,10 +1,8 @@
-package org.example.hockeymonitoring.modules.trainingmethod.controllers;
+package org.example.hockeymonitoring.modules.trainingmethod;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.trainingmethod.dto.CreateTrainingMethodDto;
-import org.example.hockeymonitoring.modules.trainingmethod.models.TrainingMethod;
-import org.example.hockeymonitoring.modules.trainingmethod.services.TrainingMethodService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

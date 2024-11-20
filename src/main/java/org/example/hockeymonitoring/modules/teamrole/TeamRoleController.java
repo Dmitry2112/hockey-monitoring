@@ -1,9 +1,7 @@
-package org.example.hockeymonitoring.modules.teamrole.controllers;
+package org.example.hockeymonitoring.modules.teamrole;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.example.hockeymonitoring.modules.teamrole.models.TeamRole;
-import org.example.hockeymonitoring.modules.teamrole.services.TeamRoleService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

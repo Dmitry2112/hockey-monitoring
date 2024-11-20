@@ -1,4 +1,4 @@
-package org.example.hockeymonitoring.modules.teamrole.models;
+package org.example.hockeymonitoring.modules.teamrole;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

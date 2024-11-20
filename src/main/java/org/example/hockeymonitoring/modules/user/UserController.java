@@ -1,8 +1,6 @@
-package org.example.hockeymonitoring.modules.user.controllers;
+package org.example.hockeymonitoring.modules.user;
 
 import lombok.AllArgsConstructor;
-import org.example.hockeymonitoring.modules.user.models.User;
-import org.example.hockeymonitoring.modules.user.services.UserService;
 import org.springframework.web.bind.annotation.*;
 import jakarta.transaction.Transactional;
 

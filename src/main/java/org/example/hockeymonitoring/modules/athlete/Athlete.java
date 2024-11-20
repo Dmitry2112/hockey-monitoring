@@ -1,10 +1,10 @@
-package org.example.hockeymonitoring.modules.athlete.models;
+package org.example.hockeymonitoring.modules.athlete;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.hockeymonitoring.modules.teamrole.models.TeamRole;
-import org.example.hockeymonitoring.modules.trainingmethod.models.TrainingMethod;
-import org.example.hockeymonitoring.modules.user.models.User;
+import org.example.hockeymonitoring.modules.teamrole.TeamRole;
+import org.example.hockeymonitoring.modules.trainingmethod.TrainingMethod;
+import org.example.hockeymonitoring.modules.user.User;
 
 @Data
 @Entity

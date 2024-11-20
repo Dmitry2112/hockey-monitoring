@@ -1,11 +1,9 @@
-package org.example.hockeymonitoring.modules.athlete.controllers;
+package org.example.hockeymonitoring.modules.athlete;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.athlete.dto.CreateAthleteDto;
 import org.example.hockeymonitoring.modules.athlete.dto.UpdateAthleteDto;
-import org.example.hockeymonitoring.modules.athlete.models.Athlete;
-import org.example.hockeymonitoring.modules.athlete.services.AthleteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

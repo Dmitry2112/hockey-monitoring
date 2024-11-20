@@ -1,8 +1,6 @@
-package org.example.hockeymonitoring.modules.user.services;
+package org.example.hockeymonitoring.modules.user;
 
 import lombok.AllArgsConstructor;
-import org.example.hockeymonitoring.modules.user.models.User;
-import org.example.hockeymonitoring.modules.user.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
