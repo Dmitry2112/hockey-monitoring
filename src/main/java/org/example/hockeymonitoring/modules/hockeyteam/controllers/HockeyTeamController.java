@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/teams")
+@RequestMapping("/api/v1/teams_old")
 @AllArgsConstructor
 public class HockeyTeamController {
     private final HockeyTeamService hockeyTeamService;
