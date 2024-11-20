@@ -2,6 +2,7 @@ package org.example.hockeymonitoring.modules.athlete;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.hockeymonitoring.modules.category.Category;
 import org.example.hockeymonitoring.modules.teamrole.TeamRole;
 import org.example.hockeymonitoring.modules.trainingmethod.TrainingMethod;
 import org.example.hockeymonitoring.modules.user.User;
@@ -25,6 +26,10 @@ public class Athlete {
     @ManyToOne
     @JoinColumn(name = "team_role_id")
     private TeamRole teamRole;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     private int rating;
     private String gender;
