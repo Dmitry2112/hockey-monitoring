@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.example.hockeymonitoring.modules.matchtype.MatchType;
 import org.example.hockeymonitoring.modules.team.Team;
+import org.example.hockeymonitoring.modules.tournament.Tournament;
 
 @Data
 @Entity
@@ -12,6 +13,10 @@ public class Match {
     @Id
     @GeneratedValue
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "tournament_id")
+    private Tournament tournament;
 
     @ManyToOne
     @JoinColumn(name = "first_team_id")

@@ -8,6 +8,8 @@ import org.example.hockeymonitoring.modules.matchtype.MatchType;
 import org.example.hockeymonitoring.modules.matchtype.MatchTypeService;
 import org.example.hockeymonitoring.modules.team.Team;
 import org.example.hockeymonitoring.modules.team.TeamService;
+import org.example.hockeymonitoring.modules.tournament.Tournament;
+import org.example.hockeymonitoring.modules.tournament.TournamentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -24,6 +26,7 @@ public class MatchService {
 
     private final ObjectMapper objectMapper;
 
+    private final TournamentService tournamentService;
     private final TeamService teamService;
     private final MatchTypeService matchTypeService;
 
@@ -38,12 +41,14 @@ public class MatchService {
     }
 
     public Match create(CreateMatchDto dto) {
+        Tournament tournament = tournamentService.getOne(dto.getTournamentId());
         Team firstTeam = teamService.getOne(dto.getFirstTeamId());
         Team secondTeam = teamService.getOne(dto.getSecondTeamId());
         MatchType type = matchTypeService.getOne(dto.getTypeId());
 
         Match match = new Match();
 
+        match.setTournament(tournament);
         match.setFirstTeam(firstTeam);
         match.setSecondTeam(secondTeam);
         match.setType(type);
