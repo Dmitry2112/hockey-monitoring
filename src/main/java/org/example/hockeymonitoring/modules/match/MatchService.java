@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.example.hockeymonitoring.modules.match.dto.CreateMatchDto;
+import org.example.hockeymonitoring.modules.matchtype.MatchType;
+import org.example.hockeymonitoring.modules.matchtype.MatchTypeService;
 import org.example.hockeymonitoring.modules.team.Team;
 import org.example.hockeymonitoring.modules.team.TeamService;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,7 @@ public class MatchService {
     private final ObjectMapper objectMapper;
 
     private final TeamService teamService;
+    private final MatchTypeService matchTypeService;
 
     public List<Match> getList() {
         return matchRepository.findAll();
@@ -37,11 +40,13 @@ public class MatchService {
     public Match create(CreateMatchDto dto) {
         Team firstTeam = teamService.getOne(dto.getFirstTeamId());
         Team secondTeam = teamService.getOne(dto.getSecondTeamId());
+        MatchType type = matchTypeService.getOne(dto.getTypeId());
 
         Match match = new Match();
 
         match.setFirstTeam(firstTeam);
         match.setSecondTeam(secondTeam);
+        match.setType(type);
 
         return matchRepository.save(match);
     }

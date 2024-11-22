@@ -6,4 +6,5 @@ import lombok.Getter;
 public class CreateMatchDto {
     private Long firstTeamId;
     private Long secondTeamId;
+    private Long typeId;
 }
