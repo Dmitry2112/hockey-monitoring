@@ -1,42 +1,42 @@
 package org.example.hockeymonitoring.modules.athlete;
 
-import jakarta.transaction.Transactional;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.athlete.dto.CreateAthleteDto;
-import org.example.hockeymonitoring.modules.athlete.dto.UpdateAthleteDto;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/athletes")
 @AllArgsConstructor
 public class AthleteController {
+
     private final AthleteService athleteService;
 
     @GetMapping
-    public List<Athlete> getAthletes() {
-        return athleteService.getAllAthletes();
-    }
-
-    @PostMapping("save_athlete")
-    public Athlete saveAthlete(@RequestBody CreateAthleteDto createAthleteDto) {
-        return athleteService.saveAthlete(createAthleteDto);
+    public List<Athlete> getList() {
+        return athleteService.getList();
     }
 
     @GetMapping("/{id}")
-    public Athlete findById(@PathVariable Long id) {
-        return athleteService.findById(id);
+    public Athlete getOne(@PathVariable Long id) {
+        return athleteService.getOne(id);
     }
 
-    @PutMapping("update_athlete")
-    public Athlete updateAthlete(@RequestBody UpdateAthleteDto updateAthleteDto) {
-        return athleteService.updateAthlete(updateAthleteDto.getAthlete(), updateAthleteDto.getUserId());
+    @PostMapping
+    public Athlete create(@RequestBody CreateAthleteDto dto) {
+        return athleteService.create(dto);
     }
 
-    @DeleteMapping("delete_athlete/{id}")
-    @Transactional
-    public void deleteAthlete(@PathVariable Long id) {
-        athleteService.deleteAthlete(id);
+    @PatchMapping("/{id}")
+    public Athlete patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        return athleteService.patch(id, patchNode);
+    }
+
+    @DeleteMapping("/{id}")
+    public Athlete delete(@PathVariable Long id) {
+        return athleteService.delete(id);
     }
 }

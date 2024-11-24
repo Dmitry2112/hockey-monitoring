@@ -1,7 +1,6 @@
 package org.example.hockeymonitoring.modules.athlete.dto;
 
 import lombok.Getter;
-import org.example.hockeymonitoring.modules.athlete.Athlete;
 
 @Getter
 public class CreateAthleteDto {
@@ -9,5 +8,7 @@ public class CreateAthleteDto {
     private Long trainingMethodId;
     private Long teamRoleId;
     private Long categoryId;
-    private Athlete athlete;
+    private int rating;
+    private String gender;
+    private int positionNumber;
 }
