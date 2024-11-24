@@ -1,40 +1,41 @@
 package org.example.hockeymonitoring.modules.category;
 
-import jakarta.transaction.Transactional;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/categories")
 @AllArgsConstructor
 public class CategoryController {
+
     private final CategoryService categoryService;
 
     @GetMapping
-    public List<Category> getCategories() {
-        return categoryService.getAllCategories();
-    }
-
-    @PostMapping("save_category")
-    public Category saveCategory(@RequestBody Category category) {
-        return categoryService.saveCategory(category);
+    public List<Category> getList() {
+        return categoryService.getList();
     }
 
     @GetMapping("/{id}")
-    public Category findById(@PathVariable Long id) {
-        return categoryService.findById(id);
+    public Category getOne(@PathVariable Long id) {
+        return categoryService.getOne(id);
     }
 
-    @PutMapping("update_category")
-    public Category updateCategory(@RequestBody Category category) {
-        return categoryService.updateCategory(category);
+    @PostMapping
+    public Category create(@RequestBody Category category) {
+        return categoryService.create(category);
     }
 
-    @DeleteMapping("delete_category/{id}")
-    @Transactional
-    public void deleteCategory(@PathVariable Long id) {
-        categoryService.deleteCategory(id);
+    @PatchMapping("/{id}")
+    public Category patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        return categoryService.patch(id, patchNode);
+    }
+
+    @DeleteMapping("/{id}")
+    public Category deleteCategory(@PathVariable Long id) {
+        return categoryService.delete(id);
     }
 }

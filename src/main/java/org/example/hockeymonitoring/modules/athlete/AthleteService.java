@@ -47,7 +47,7 @@ public class AthleteService {
         User user = userService.findById(dto.getUserId());
         TrainingMethod trainingMethod = trainingMethodService.findById(dto.getTrainingMethodId());
         TeamRole teamRole = teamRoleService.findById(dto.getTeamRoleId());
-        Category category = categoryService.findById(dto.getCategoryId());
+        Category category = categoryService.getOne(dto.getCategoryId());
 
         Athlete athlete = new Athlete();
 
