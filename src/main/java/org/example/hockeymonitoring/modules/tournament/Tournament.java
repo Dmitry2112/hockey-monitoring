@@ -1,10 +1,8 @@
 package org.example.hockeymonitoring.modules.tournament;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.example.hockeymonitoring.modules.tournamenttype.TournamentType;
 
 import java.time.LocalDate;
 
@@ -17,4 +15,8 @@ public class Tournament {
     private Long id;
 
     private LocalDate date;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private TournamentType type;
 }

@@ -2,6 +2,7 @@ package org.example.hockeymonitoring.modules.tournament;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
+import org.example.hockeymonitoring.modules.tournament.dto.CreateTournamentDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -25,8 +26,8 @@ public class TournamentController {
     }
 
     @PostMapping
-    public Tournament create(@RequestBody Tournament tournament) {
-        return tournamentService.create(tournament);
+    public Tournament create(@RequestBody CreateTournamentDto dto) {
+        return tournamentService.create(dto);
     }
 
     @PatchMapping("/{id}")

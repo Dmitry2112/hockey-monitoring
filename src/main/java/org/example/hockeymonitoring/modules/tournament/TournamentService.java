@@ -3,11 +3,15 @@ package org.example.hockeymonitoring.modules.tournament;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.example.hockeymonitoring.modules.tournament.dto.CreateTournamentDto;
+import org.example.hockeymonitoring.modules.tournamenttype.TournamentType;
+import org.example.hockeymonitoring.modules.tournamenttype.TournamentTypeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +23,8 @@ public class TournamentService {
 
     private final ObjectMapper objectMapper;
 
+    private final TournamentTypeService tournamentTypeService;
+
     public List<Tournament> getList() {
         return tournamentRepository.findAll();
     }
@@ -29,7 +35,14 @@ public class TournamentService {
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "Entity with id `%s` not found".formatted(id)));
     }
 
-    public Tournament create(Tournament tournament) {
+    public Tournament create(CreateTournamentDto dto) {
+        TournamentType type = tournamentTypeService.getOne(dto.getTypeId());
+
+        Tournament tournament = new Tournament();
+
+        tournament.setDate(LocalDate.parse(dto.getDate()));
+        tournament.setType(type);
+
         return tournamentRepository.save(tournament);
     }
 
