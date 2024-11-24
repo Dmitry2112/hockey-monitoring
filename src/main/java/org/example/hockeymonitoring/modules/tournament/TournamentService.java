@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +39,7 @@ public class TournamentService {
 
         Tournament tournament = new Tournament();
 
-        tournament.setDate(LocalDate.parse(dto.getDate()));
+        tournament.setDate(dto.getDate());
         tournament.setType(type);
 
         return tournamentRepository.save(tournament);
