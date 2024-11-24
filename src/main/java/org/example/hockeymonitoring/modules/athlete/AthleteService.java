@@ -45,7 +45,7 @@ public class AthleteService {
 
     public Athlete create(CreateAthleteDto dto) {
         User user = userService.findById(dto.getUserId());
-        TrainingMethod trainingMethod = trainingMethodService.findById(dto.getTrainingMethodId());
+        TrainingMethod trainingMethod = trainingMethodService.getOne(dto.getTrainingMethodId());
         TeamRole teamRole = teamRoleService.getOne(dto.getTeamRoleId());
         Category category = categoryService.getOne(dto.getCategoryId());
 
