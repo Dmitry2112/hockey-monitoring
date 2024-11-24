@@ -37,7 +37,7 @@ public class TrainingMethodService {
     public TrainingMethod create(CreateTrainingMethodDto dto) {
         //TODO: реализовать загрузку файла
 
-        User user = userService.findById(dto.getUserId());
+        User user = userService.getOne(dto.getUserId());
 
         TrainingMethod trainingMethod = new TrainingMethod();
 

@@ -1,40 +1,41 @@
 package org.example.hockeymonitoring.modules.user;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import jakarta.transaction.Transactional;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
 @AllArgsConstructor
 public class UserController {
+
     private final UserService userService;
 
     @GetMapping
-    public List<User> getUsers() {
-        return userService.getAllUsers();
-    }
-
-    @PostMapping("save_user")
-    public User saveUser(@RequestBody User user) {
-        return userService.saveUser(user);
+    public List<User> getList() {
+        return userService.getList();
     }
 
     @GetMapping("/{id}")
-    public User findById(@PathVariable Long id) {
-        return userService.findById(id);
+    public User getOne(@PathVariable Long id) {
+        return userService.getOne(id);
     }
 
-    @PutMapping("update_user")
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return userService.create(user);
     }
 
-    @DeleteMapping("delete_user/{id}")
-    @Transactional
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+    @PatchMapping("/{id}")
+    public User patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        return userService.patch(id, patchNode);
+    }
+
+    @DeleteMapping("/{id}")
+    public User delete(@PathVariable Long id) {
+        return userService.delete(id);
     }
 }
