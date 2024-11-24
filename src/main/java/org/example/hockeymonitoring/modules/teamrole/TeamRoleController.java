@@ -1,40 +1,41 @@
 package org.example.hockeymonitoring.modules.teamrole;
 
-import jakarta.transaction.Transactional;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/teamroles")
 @AllArgsConstructor
 public class TeamRoleController {
+
     private final TeamRoleService teamRoleService;
 
     @GetMapping
-    public List<TeamRole> getTeamRoles() {
-        return teamRoleService.getAllTeamRoles();
-    }
-
-    @PostMapping("save_teamrole")
-    public TeamRole saveTeamRole(@RequestBody TeamRole teamRole) {
-        return teamRoleService.saveTeamRole(teamRole);
+    public List<TeamRole> getList() {
+        return teamRoleService.getList();
     }
 
     @GetMapping("/{id}")
-    public TeamRole findById(@PathVariable Long id) {
-        return teamRoleService.findById(id);
+    public TeamRole getOne(@PathVariable Long id) {
+        return teamRoleService.getOne(id);
     }
 
-    @PutMapping("update_teamrole")
-    public TeamRole updateTeamRole(@RequestBody TeamRole teamRole) {
-        return teamRoleService.updateTeamRole(teamRole);
+    @PostMapping
+    public TeamRole create(@RequestBody TeamRole teamRole) {
+        return teamRoleService.create(teamRole);
     }
 
-    @DeleteMapping("delete_teamrole/{id}")
-    @Transactional
-    public void deleteTeamRole(@PathVariable Long id) {
-        teamRoleService.deleteTeamRole(id);
+    @PatchMapping("/{id}")
+    public TeamRole patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        return teamRoleService.patch(id, patchNode);
+    }
+
+    @DeleteMapping("/{id}")
+    public TeamRole delete(@PathVariable Long id) {
+        return teamRoleService.delete(id);
     }
 }
