@@ -219,3 +219,15 @@ interpreter позволяет легко добавлять новые прав
    
 В этом примере реализован паттерн memento, для того, чтобы вынести внутреннее состояние проекта за его
 пределы для последующего возможного восстановления без нарушения принципа инкапсуляции.
+
+### Задание 21. Observer
+Интерфейс [`Observer`](src/main/java/examples/patterns/behavior/observer/Observer.java) представляет паттерн observer
+
+Это можно определить по следующим признакам:
+1. Интерфейс [`Observer`](src/main/java/examples/patterns/behavior/observer/Observer.java) представляет абстрактного наблюдателя.
+2. Классы [`BlueFan`](src/main/java/examples/patterns/behavior/observer/BlueFan.java) и [`RedFan`](src/main/java/examples/patterns/behavior/observer/RedFan.java) представляют собой конкретных наблюдателей.
+3. Класс [`Score`](src/main/java/examples/patterns/behavior/observer/Score.java) представляет собой субъект, который при изменении оповещает наблюдателей.
+   
+В этом примере реализован паттерн observer, для того, чтобы определить связь между счетом матча и болельщиками команд.
+Паттерн observer позволяет при измении счета оповестить об этом всех болельщиков, чтобы те, в свою очередь, каким-либо
+образом отреагировали на это.
