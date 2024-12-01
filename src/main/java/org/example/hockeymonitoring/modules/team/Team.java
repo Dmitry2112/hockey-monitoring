@@ -2,6 +2,10 @@ package org.example.hockeymonitoring.modules.team;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.hockeymonitoring.modules.athlete.Athlete;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -14,4 +18,10 @@ public class Team {
     private int missedGoals;
 
     private int scoredGoals;
+
+    @ManyToMany
+    @JoinTable(name = "teams_athletes",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "athletes_id"))
+    private Set<Athlete> athletes = new LinkedHashSet<>();
 }

@@ -3,13 +3,15 @@ package org.example.hockeymonitoring.modules.team;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.example.hockeymonitoring.modules.athlete.Athlete;
+import org.example.hockeymonitoring.modules.athlete.AthleteService;
+import org.example.hockeymonitoring.modules.team.dto.AddAthletesDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -18,6 +20,8 @@ public class TeamService {
     private final TeamRepository teamRepository;
 
     private final ObjectMapper objectMapper;
+
+    private final AthleteService athleteService;
 
     public List<Team> getList() {
         return teamRepository.findAll();
@@ -48,5 +52,14 @@ public class TeamService {
             teamRepository.delete(team);
         }
         return team;
+    }
+
+    public Team addAthletes(Long id, AddAthletesDto dto) {
+        Team team = getOne(id);
+        Set<Athlete> athletes = new LinkedHashSet<>(athleteService.getMany(dto.getAthleteIds()));
+
+        team.setAthletes(athletes);
+
+        return teamRepository.save(team);
     }
 }

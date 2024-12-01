@@ -78,4 +78,8 @@ public class AthleteService {
         }
         return athlete;
     }
+
+    public List<Athlete> getMany(List<Long> ids) {
+        return athleteRepository.findAllById(ids);
+    }
 }

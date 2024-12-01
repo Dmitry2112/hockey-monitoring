@@ -2,6 +2,7 @@ package org.example.hockeymonitoring.modules.team;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
+import org.example.hockeymonitoring.modules.team.dto.AddAthletesDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -37,5 +38,10 @@ public class TeamController {
     @DeleteMapping("/{id}")
     public Team delete(@PathVariable Long id) {
         return teamService.delete(id);
+    }
+
+    @PatchMapping("/{id}/add-athletes")
+    public Team addAthletes(@PathVariable Long id, @RequestBody AddAthletesDto dto) {
+        return teamService.addAthletes(id, dto);
     }
 }
