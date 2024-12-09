@@ -3,7 +3,7 @@ services:
     image: postgres:17.2
     restart: "no"
     ports:
-      - "5432:5432"
+      - "5438:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -16,9 +16,6 @@ services:
       timeout: 5s
       start_period: 10s
       retries: 5
-    networks:
-      - postgres
-
   hockey-monitoring:
     image: hockey-monitoring:latest
     build:
@@ -35,12 +32,6 @@ services:
       POSTGRES_PASSWORD: root
     depends_on:
       - postgres
-    networks:
-      - postgres
 
 volumes:
   postgres_data:
-
-networks:
-  postgres:
-    driver: bridge
