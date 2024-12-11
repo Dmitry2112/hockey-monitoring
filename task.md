@@ -263,3 +263,15 @@ Enum [`TeamRole`](src/main/java/examples/patterns/behavior/strategy/TeamRole.jav
 В этом примере реализован паттерн template method, для того, чтобы изменить поведение регистрации на турнир для мужчин
 и женщин, при этом не меняя саму структуру этого процесса. Также паттерн template method позволяет устранить дублирование
 кода засчет переопределения методов классами наследниками
+
+### Задание 25. Visitor
+Интерфейс [`SportCommission`](src/main/java/examples/patterns/behavior/visitor/SportCommission.java) представляет паттерн visitor
+
+Это можно определить по следующим признакам:
+1. Интерфейс [`SportCommission`](src/main/java/examples/patterns/behavior/visitor/SportCommission.java) представляет абстрактного посетителя с набором методов по обработке элементов различных типов.
+2. Классы [`FederalSportCommission`](src/main/java/examples/patterns/behavior/visitor/FederalSportCommission.java) и [`HockeySportCommission`](src/main/java/examples/patterns/behavior/visitor/HockeySportCommission.java) предствляют конкретных посетителей.
+3. Интерфейс [`HockeyElement`](src/main/java/examples/patterns/behavior/visitor/HockeyElement.java) представляет абстрактный элемент
+4. Классы [`HockeyPlayer`](src/main/java/examples/patterns/behavior/visitor/HockeyPlayer.java), [`Judge`](src/main/java/examples/patterns/behavior/visitor/Judge.java) и [`Trainer`](src/main/java/examples/patterns/behavior/visitor/Trainer.java) представляют конкретные элементы
+
+В этом примере реализован паттерн visitor, для того, чтобы выполнить операции проверки над объектами некоторой хоккейной
+структуры. Паттерн visitor позволяет добавить эти операции, при этом не изменяя сами классы объектов
