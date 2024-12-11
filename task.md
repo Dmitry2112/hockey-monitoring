@@ -252,3 +252,14 @@ Enum [`TeamRole`](src/main/java/examples/patterns/behavior/strategy/TeamRole.jav
 
 В этом примере реализован паттерн strategy, для того, чтобы определить различные виды поведения игрока отдельно от
 класса игрока. Паттерн Strategy позволяет изменять эти поведения независимо от клиентского класса
+
+### Задание 24. Template method
+В классе [`TournamentRegistrar`](src/main/java/examples/patterns/behavior/templatemethod/TournamentRegistrar.java) реализован паттерн template method
+Это можно определить по следующим признакам:
+
+1. Абстрактный класс [`TournamentRegistrar`](src/main/java/examples/patterns/behavior/templatemethod/TournamentRegistrar.java) содержит шаблонный final метод `register`, внутри которого вызываются методы, которые переопределяют дочерние классы для изменения поведения.
+2. Классы [`MaleTournamentRegistrar`](src/main/java/examples/patterns/behavior/templatemethod/MaleTournamentRegistrar.java) и [`FemaleTournamentRegistrar`](src/main/java/examples/patterns/behavior/templatemethod/FemaleTournamentRegistrar.java) переопределяют методы `getSuperDocuments` и `addPlayerInTeam`.
+   
+В этом примере реализован паттерн template method, для того, чтобы изменить поведение регистрации на турнир для мужчин
+и женщин, при этом не меняя саму структуру этого процесса. Также паттерн template method позволяет устранить дублирование
+кода засчет переопределения методов классами наследниками
