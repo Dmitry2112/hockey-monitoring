@@ -2,6 +2,7 @@ package org.example.hockeymonitoring.modules.match.dto;
 
 import lombok.Getter;
 import org.example.hockeymonitoring.modules.match.MatchStatus;
+import org.example.hockeymonitoring.modules.match.MatchType;
 
 import java.time.LocalDate;
 
@@ -11,7 +12,7 @@ CreateMatchDto {
     private Long tournamentId;
     private Long firstTeamId;
     private Long secondTeamId;
-    private Long typeId;
+    private MatchType type;
     private String gender;
     private MatchStatus status;
     private LocalDate startDate;

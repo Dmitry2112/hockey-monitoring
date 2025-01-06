@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.example.hockeymonitoring.modules.match.dto.CreateMatchDto;
-import org.example.hockeymonitoring.modules.matchtype.MatchType;
-import org.example.hockeymonitoring.modules.matchtype.MatchTypeService;
 import org.example.hockeymonitoring.modules.team.Team;
 import org.example.hockeymonitoring.modules.team.TeamService;
 import org.example.hockeymonitoring.modules.tournament.Tournament;
@@ -28,7 +26,6 @@ public class MatchService {
 
     private final TournamentService tournamentService;
     private final TeamService teamService;
-    private final MatchTypeService matchTypeService;
 
     public List<Match> getList() {
         return matchRepository.findAll();
@@ -44,14 +41,13 @@ public class MatchService {
         Tournament tournament = tournamentService.getOne(dto.getTournamentId());
         Team firstTeam = teamService.getOne(dto.getFirstTeamId());
         Team secondTeam = teamService.getOne(dto.getSecondTeamId());
-        MatchType type = matchTypeService.getOne(dto.getTypeId());
 
         Match match = new Match();
 
         match.setTournament(tournament);
         match.setFirstTeam(firstTeam);
         match.setSecondTeam(secondTeam);
-        match.setType(type);
+        match.setType(dto.getType());
         match.setGender(dto.getGender());
         match.setStatus(dto.getStatus());
         match.setStartDate(dto.getStartDate());

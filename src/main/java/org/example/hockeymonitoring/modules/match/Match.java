@@ -2,7 +2,6 @@ package org.example.hockeymonitoring.modules.match;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.hockeymonitoring.modules.matchtype.MatchType;
 import org.example.hockeymonitoring.modules.team.Team;
 import org.example.hockeymonitoring.modules.tournament.Tournament;
 
@@ -28,8 +27,7 @@ public class Match {
     @JoinColumn(name = "second_team_id")
     private Team secondTeam;
 
-    @ManyToOne
-    @JoinColumn(name = "type_id")
+    @Enumerated(EnumType.STRING)
     private MatchType type;
 
     private String gender;
