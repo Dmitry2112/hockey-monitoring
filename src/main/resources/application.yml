@@ -3,9 +3,9 @@ spring:
   application:
     name: hockey-monitoring
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}/${POSTGRES_DB_NAME:hockey_monitoring_db}
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:root}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
