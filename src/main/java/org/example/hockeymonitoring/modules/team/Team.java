@@ -15,6 +15,8 @@ public class Team {
     @GeneratedValue
     private Long id;
 
+    private String gender;
+
     @ManyToMany
     @JoinTable(name = "teams_athletes",
             joinColumns = @JoinColumn(name = "team_id"),
