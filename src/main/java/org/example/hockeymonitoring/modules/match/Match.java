@@ -27,6 +27,9 @@ public class Match {
     @JoinColumn(name = "second_team_id")
     private Team secondTeam;
 
+    private int firstTeamScore;
+    private int secondTeamScore;
+
     @Enumerated(EnumType.STRING)
     private MatchType type;
 

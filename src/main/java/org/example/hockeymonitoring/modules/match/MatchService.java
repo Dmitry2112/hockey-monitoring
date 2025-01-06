@@ -47,6 +47,8 @@ public class MatchService {
         match.setTournament(tournament);
         match.setFirstTeam(firstTeam);
         match.setSecondTeam(secondTeam);
+        match.setFirstTeamScore(dto.getFirstTeamScore());
+        match.setSecondTeamScore(dto.getSecondTeamScore());
         match.setType(dto.getType());
         match.setGender(dto.getGender());
         match.setStatus(dto.getStatus());

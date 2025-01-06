@@ -7,11 +7,12 @@ import org.example.hockeymonitoring.modules.match.MatchType;
 import java.time.LocalDate;
 
 @Getter
-public class
-CreateMatchDto {
+public class CreateMatchDto {
     private Long tournamentId;
     private Long firstTeamId;
     private Long secondTeamId;
+    private int firstTeamScore;
+    private int secondTeamScore;
     private MatchType type;
     private String gender;
     private MatchStatus status;

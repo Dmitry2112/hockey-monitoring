@@ -15,10 +15,6 @@ public class Team {
     @GeneratedValue
     private Long id;
 
-    private int missedGoals;
-
-    private int scoredGoals;
-
     @ManyToMany
     @JoinTable(name = "teams_athletes",
             joinColumns = @JoinColumn(name = "team_id"),
