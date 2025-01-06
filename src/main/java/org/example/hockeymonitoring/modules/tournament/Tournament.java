@@ -2,7 +2,6 @@ package org.example.hockeymonitoring.modules.tournament;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.hockeymonitoring.modules.tournamenttype.TournamentType;
 
 import java.time.LocalDate;
 
@@ -16,8 +15,7 @@ public class Tournament {
 
     private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn(name = "type_id")
+    @Enumerated(EnumType.STRING)
     private TournamentType type;
 
     private String gender;

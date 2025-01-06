@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.example.hockeymonitoring.modules.tournament.dto.CreateTournamentDto;
-import org.example.hockeymonitoring.modules.tournamenttype.TournamentType;
-import org.example.hockeymonitoring.modules.tournamenttype.TournamentTypeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,8 +20,6 @@ public class TournamentService {
 
     private final ObjectMapper objectMapper;
 
-    private final TournamentTypeService tournamentTypeService;
-
     public List<Tournament> getList() {
         return tournamentRepository.findAll();
     }
@@ -35,12 +31,10 @@ public class TournamentService {
     }
 
     public Tournament create(CreateTournamentDto dto) {
-        TournamentType type = tournamentTypeService.getOne(dto.getTypeId());
-
         Tournament tournament = new Tournament();
 
         tournament.setDate(dto.getDate());
-        tournament.setType(type);
+        tournament.setType(dto.getType());
         tournament.setGender(dto.getGender());
         tournament.setStatus(dto.getStatus());
         tournament.setStartDate(dto.getStartDate());
