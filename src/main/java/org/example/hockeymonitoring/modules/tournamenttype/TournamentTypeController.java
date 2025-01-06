@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/tournamenttypes")
+@RequestMapping("/api/v1/tournament-types")
 @RequiredArgsConstructor
 public class TournamentTypeController {
 
