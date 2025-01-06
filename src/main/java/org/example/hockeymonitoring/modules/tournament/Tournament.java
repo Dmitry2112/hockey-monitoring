@@ -19,4 +19,12 @@ public class Tournament {
     @ManyToOne
     @JoinColumn(name = "type_id")
     private TournamentType type;
+
+    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private TournamentStatus status;
+
+    private LocalDate startDate;
+    private LocalDate endDate;
 }

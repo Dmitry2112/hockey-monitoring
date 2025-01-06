@@ -41,6 +41,10 @@ public class TournamentService {
 
         tournament.setDate(dto.getDate());
         tournament.setType(type);
+        tournament.setGender(dto.getGender());
+        tournament.setStatus(dto.getStatus());
+        tournament.setStartDate(dto.getStartDate());
+        tournament.setEndDate(dto.getEndDate());
 
         return tournamentRepository.save(tournament);
     }
