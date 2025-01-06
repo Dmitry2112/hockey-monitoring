@@ -1,5 +1,5 @@
 package org.example.hockeymonitoring.modules.match;
 
 public enum MatchType {
-    MICRO, DEFAULT
+    FOUR_BY_FOUR, FIVE_BY_FIVE
 }
