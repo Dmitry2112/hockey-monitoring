@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.athlete.dto.CreateAthleteDto;
 import org.example.hockeymonitoring.modules.category.Category;
 import org.example.hockeymonitoring.modules.category.CategoryService;
-import org.example.hockeymonitoring.modules.teamrole.TeamRole;
-import org.example.hockeymonitoring.modules.teamrole.TeamRoleService;
 import org.example.hockeymonitoring.modules.trainingmethod.TrainingMethod;
 import org.example.hockeymonitoring.modules.trainingmethod.TrainingMethodService;
 import org.example.hockeymonitoring.modules.user.User;
@@ -30,7 +28,6 @@ public class AthleteService {
 
     private final UserService userService;
     private final TrainingMethodService trainingMethodService;
-    private final TeamRoleService teamRoleService;
     private final CategoryService categoryService;
 
     public List<Athlete> getList() {
@@ -46,14 +43,13 @@ public class AthleteService {
     public Athlete create(CreateAthleteDto dto) {
         User user = userService.getOne(dto.getUserId());
         TrainingMethod trainingMethod = trainingMethodService.getOne(dto.getTrainingMethodId());
-        TeamRole teamRole = teamRoleService.getOne(dto.getTeamRoleId());
         Category category = categoryService.getOne(dto.getCategoryId());
 
         Athlete athlete = new Athlete();
 
         athlete.setUser(user);
         athlete.setTrainingMethod(trainingMethod);
-        athlete.setTeamRole(teamRole);
+        athlete.setTeamRole(dto.getTeamRole());
         athlete.setCategory(category);
         athlete.setRating(dto.getRating());
         athlete.setGender(dto.getGender());
