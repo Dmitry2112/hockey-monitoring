@@ -1,7 +1,9 @@
 package org.example.hockeymonitoring.modules.user;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
+import org.example.hockeymonitoring.shared.Response;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -15,8 +17,9 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public List<User> getList() {
-        return userService.getList();
+    public Response<List<User>> getList() throws JsonProcessingException {
+        List<User> users = userService.getList();
+        return new Response<>(users);
     }
 
     @GetMapping("/{id}")
