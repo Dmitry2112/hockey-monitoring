@@ -52,6 +52,10 @@ public class MatchService {
         match.setFirstTeam(firstTeam);
         match.setSecondTeam(secondTeam);
         match.setType(type);
+        match.setGender(dto.getGender());
+        match.setStatus(dto.getStatus());
+        match.setStartDate(dto.getStartDate());
+        match.setEndDate(dto.getEndDate());
 
         return matchRepository.save(match);
     }

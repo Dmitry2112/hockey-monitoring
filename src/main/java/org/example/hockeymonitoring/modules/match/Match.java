@@ -6,6 +6,8 @@ import org.example.hockeymonitoring.modules.matchtype.MatchType;
 import org.example.hockeymonitoring.modules.team.Team;
 import org.example.hockeymonitoring.modules.tournament.Tournament;
 
+import java.time.LocalDate;
+
 @Data
 @Entity
 @Table(name = "matches")
@@ -29,4 +31,12 @@ public class Match {
     @ManyToOne
     @JoinColumn(name = "type_id")
     private MatchType type;
+
+    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private MatchStatus status;
+
+    private LocalDate startDate;
+    private LocalDate endDate;
 }
