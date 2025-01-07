@@ -3,6 +3,7 @@ package org.example.hockeymonitoring.modules.trainingmethod;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.trainingmethod.dto.CreateTrainingMethodDto;
+import org.example.hockeymonitoring.shared.Response;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -16,27 +17,32 @@ public class TrainingMethodController {
     private final TrainingMethodService trainingMethodService;
 
     @GetMapping
-    public List<TrainingMethod> getList() {
-        return trainingMethodService.getList();
+    public Response<List<TrainingMethod>> getList() {
+        List<TrainingMethod> trainingMethods = trainingMethodService.getList();
+        return new Response<>(trainingMethods);
     }
 
     @GetMapping("/{id}")
-    public TrainingMethod getOne(@PathVariable Long id) {
-        return trainingMethodService.getOne(id);
+    public Response<TrainingMethod> getOne(@PathVariable Long id) {
+        TrainingMethod trainingMethod = trainingMethodService.getOne(id);
+        return new Response<>(trainingMethod);
     }
 
     @PostMapping
-    public TrainingMethod create(@RequestBody CreateTrainingMethodDto dto) {
-        return trainingMethodService.create(dto);
+    public Response<TrainingMethod> create(@RequestBody CreateTrainingMethodDto dto) {
+        TrainingMethod trainingMethod = trainingMethodService.create(dto);
+        return new Response<>(trainingMethod);
     }
 
     @PatchMapping("/{id}")
-    public TrainingMethod patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
-        return trainingMethodService.patch(id, patchNode);
+    public Response<TrainingMethod> patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        TrainingMethod trainingMethod = trainingMethodService.patch(id, patchNode);
+        return new Response<>(trainingMethod);
     }
 
     @DeleteMapping("/{id}")
-    public TrainingMethod delete(@PathVariable Long id) {
-        return trainingMethodService.delete(id);
+    public Response<TrainingMethod> delete(@PathVariable Long id) {
+        TrainingMethod trainingMethod = trainingMethodService.delete(id);
+        return new Response<>(trainingMethod);
     }
 }
