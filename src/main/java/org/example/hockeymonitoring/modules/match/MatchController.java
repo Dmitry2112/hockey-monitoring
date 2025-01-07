@@ -3,6 +3,7 @@ package org.example.hockeymonitoring.modules.match;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import org.example.hockeymonitoring.modules.match.dto.CreateMatchDto;
+import org.example.hockeymonitoring.shared.Response;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -16,27 +17,32 @@ public class MatchController {
     private final MatchService matchService;
 
     @GetMapping
-    public List<Match> getList() {
-        return matchService.getList();
+    public Response<List<Match>> getList() {
+        List<Match> matches = matchService.getList();
+        return new Response<>(matches);
     }
 
     @GetMapping("/{id}")
-    public Match getOne(@PathVariable Long id) {
-        return matchService.getOne(id);
+    public Response<Match> getOne(@PathVariable Long id) {
+        Match match = matchService.getOne(id);
+        return new Response<>(match);
     }
 
     @PostMapping
-    public Match create(@RequestBody CreateMatchDto dto) {
-        return matchService.create(dto);
+    public Response<Match> create(@RequestBody CreateMatchDto dto) {
+        Match match = matchService.create(dto);
+        return new Response<>(match);
     }
 
     @PatchMapping("/{id}")
-    public Match patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
-        return matchService.patch(id, patchNode);
+    public Response<Match> patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        Match match = matchService.patch(id, patchNode);
+        return new Response<>(match);
     }
 
     @DeleteMapping("/{id}")
-    public Match delete(@PathVariable Long id) {
-        return matchService.delete(id);
+    public Response<Match> delete(@PathVariable Long id) {
+        Match match = matchService.delete(id);
+        return new Response<>(match);
     }
 }
