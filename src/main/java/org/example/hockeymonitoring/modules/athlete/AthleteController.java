@@ -3,6 +3,7 @@ package org.example.hockeymonitoring.modules.athlete;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;
 import org.example.hockeymonitoring.modules.athlete.dto.CreateAthleteDto;
+import org.example.hockeymonitoring.shared.Response;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -16,27 +17,32 @@ public class AthleteController {
     private final AthleteService athleteService;
 
     @GetMapping
-    public List<Athlete> getList() {
-        return athleteService.getList();
+    public Response<List<Athlete>> getList() {
+        List<Athlete> athletes = athleteService.getList();
+        return new Response<>(athletes);
     }
 
     @GetMapping("/{id}")
-    public Athlete getOne(@PathVariable Long id) {
-        return athleteService.getOne(id);
+    public Response<Athlete> getOne(@PathVariable Long id) {
+        Athlete athlete = athleteService.getOne(id);
+        return new Response<>(athlete);
     }
 
     @PostMapping
-    public Athlete create(@RequestBody CreateAthleteDto dto) {
-        return athleteService.create(dto);
+    public Response<Athlete> create(@RequestBody CreateAthleteDto dto) {
+        Athlete athlete = athleteService.create(dto);
+        return new Response<>(athlete);
     }
 
     @PatchMapping("/{id}")
-    public Athlete patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
-        return athleteService.patch(id, patchNode);
+    public Response<Athlete> patch(@PathVariable Long id, @RequestBody JsonNode patchNode) throws IOException {
+        Athlete athlete = athleteService.patch(id, patchNode);
+        return new Response<>(athlete);
     }
 
     @DeleteMapping("/{id}")
-    public Athlete delete(@PathVariable Long id) {
-        return athleteService.delete(id);
+    public Response<Athlete> delete(@PathVariable Long id) {
+        Athlete athlete = athleteService.delete(id);
+        return new Response<>(athlete);
     }
 }
