@@ -6,5 +6,9 @@ import java.util.List;
 
 @Getter
 public class AddAthletesDto {
-    private List<Long> athleteIds;
+    private final List<Long> athleteIds;
+
+    public AddAthletesDto(List<Long> athleteIds) {
+        this.athleteIds = athleteIds;
+    }
 }
